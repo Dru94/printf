@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 	char *s;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -44,13 +46,9 @@ int _printf(const char *format, ...)
 				count = count + t;
 				i = i + 2;
 				break;
-			default:
-				t = write(1, &format[i], 1);
-				count = count + t;
-				i++;
-				break;
 		}
 	}
 	va_end(args);
+	write(1, "\n", 1);
 	return (count);
 }
