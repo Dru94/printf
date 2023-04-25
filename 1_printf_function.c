@@ -2,7 +2,18 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <stdio.h>
+/**
+ * is_format_null - checks if format argument is NULL
+ * @format: function argument
+ * Return: 0 for success
+ */
+int is_format_null(const char *format)
+{
+	if (format == NULL)
+		return (1);
+	return (0);
+}
 /**
  * _printf - Create a function that assembles a result according to a format.
  *
@@ -19,9 +30,11 @@ int _printf(const char *format, ...)
 	va_list args;
 	char c;
 	char *s;
+	int is_null;
 
 	va_start(args, format);
-	if (format == NULL)
+	is_null = is_format_null(format);
+	if (is_null)
 		return (-1);
 	while (format[i])
 	{
@@ -46,9 +59,13 @@ int _printf(const char *format, ...)
 				count = count + t;
 				i = i + 2;
 				break;
+			default:
+				t = write(1, &format[i], 1);
+				count = count + t;
+				i = i + 2;
+				break;
 		}
 	}
 	va_end(args);
-	putchar('\n');
 	return (count);
 }
