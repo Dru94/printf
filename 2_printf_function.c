@@ -5,18 +5,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * is_format_null - checks if format argument is NULL
- * @format: function argument
- * Return: 0 for success
+ * is_format_null - Function which checks if format argument is NULL.
+ * 
+ * @format: Function argument.
+ *
+ * Return: 0 for success.
  */
-int is_format_nul(const char *format)
+int is_format_null(const char *format)
 {
 	if (format == NULL)
 		return (1);
 	return (0);
 }
 /**
- * int_to_string - converts integer to string
+ * int_to_string - The function converts integer to string.
+ *
+ * @num: The integer to be converted.
+ *
+ * Return: String.
  */
 char *int_to_string(int num)
 {
