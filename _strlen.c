@@ -1,5 +1,10 @@
 #include "main.h"
 /**
+ * _strlen - Function that calculates the length of string excluding the NULL terminator.
+ *
+ * @res: Pointer to a string.
+ *
+ * Return: Count.
  */
 int _strlen(char* res)
 {
