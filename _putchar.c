@@ -1,7 +1,8 @@
 #include <unistd.h>
 /**
- * _putchar - function writes to standard output
- * @c: function argument
+ * _putchar - Function writes to standard output.
+ *
+ * @c: Function argument.
  */
 int _putchar(char c)
 {
