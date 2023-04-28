@@ -1,5 +1,14 @@
 #include "main.h"
 #include <stdint.h>
+
+/**
+ * _printf - Function prints output based on a format.
+ *
+ * @format: String of character.
+ *
+ * Return: output chars.
+ */
+
 int _printf(const char *format, ...)
 {
 	int output_chars;
