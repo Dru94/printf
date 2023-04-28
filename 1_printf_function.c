@@ -1,71 +1,29 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
-/**
- * is_format_null - checks if format argument is NULL
- * @format: function argument
- * Return: 0 for success
- */
-int is_format_null(const char *format)
-{
-	if (format == NULL)
-		return (1);
-	return (0);
-}
-/**
- * _printf - Create a function that assembles a result according to a format.
- *
- * @format: Function argument.
- *
- * Return: Count.
- */
-
+#include <stdint.h>
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int t = 0;
-	int count = 0;
+	int output_chars;
 	va_list args;
-	char c;
-	char *s;
-	int is_null;
+	forma_t func_list[] =	{
+		{"c", handle_char},
+
+		{"s", handle_string},
+
+		{"%", handle_percent},
+
+		{"d", handle_integer},
+
+		{"i", handle_integer},
+
+		{NULL, NULL}
+	};
+
+	if (format == NULL)
+		return (-1);
 
 	va_start(args, format);
-	is_null = is_format_null(format);
-	if (is_null)
-		return (-1);
-	while (format[i])
-	{
-		if (format[i] != '%')
-		{
-			t = write(1, &format[i], 1);
-			count = count + t;
-			i++;
-			continue;
-		}
-		switch (format[i + 1])
-		{
-			case 'c':
-				c = va_arg(args, int);
-				t = write(1, &c, 1);
-				count = count + t;
-				i = i + 2;
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				t = write(1, s, strlen(s));
-				count = count + t;
-				i = i + 2;
-				break;
-			default:
-				t = write(1, &format[i], 1);
-				count = count + t;
-				i = i + 2;
-				break;
-		}
-	}
+	output_chars = handler(format, func_list, args);
 	va_end(args);
-	return (count);
+	return (output_chars);
+
 }
