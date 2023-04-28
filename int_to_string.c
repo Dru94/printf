@@ -1,9 +1,12 @@
 #include "main.h"
 /**
- * handler - function to handle arguments
- * @format: function argument
- * @forma_t: function argument
- * @args: function argument
+ * handler - Function to handle arguments.
+ *
+ * @format: Function argument.
+ * @forma_t: Function argument.
+ * @args: Function argument.
+ *
+ * Return: output chars.
 */
 int handler(const char *format, forma_t func_list[], va_list args)
 {
