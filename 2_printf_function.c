@@ -1,7 +1,13 @@
 #include "main.h"
+
 /**
- * output_number - function to get number of characters
-*/
+ * output_number - The function gets number of characters.
+ * 
+ * @args: Function argument.
+ *
+ * Return: len.
+ */
+
 int output_number(va_list args)
 {
 	int j = va_arg(args, int);
@@ -31,7 +37,11 @@ int output_number(va_list args)
 }
 
 /**
- * output_unsigned_num - function to output unsigned integer
+ * output_unsigned_num - The function outputs unsigned integer.
+ *
+ * @k: Function argument.
+ *
+ * Return: len.
 */
 int output_unsigned_num(unsigned int k)
 {
@@ -54,8 +64,13 @@ int output_unsigned_num(unsigned int k)
 }
 
 /**
- * handle_char - function prints character to output
-*/
+ * handle_char - Function displays character to output
+ *
+ * @args: Function argument.
+ *
+ * Return: 1.
+ */
+
 int handle_char(va_list args)
 {
 	char val = va_arg(args, int);
@@ -64,8 +79,13 @@ int handle_char(va_list args)
 }
 
 /**
- * handle_string - function prints string to output
-*/
+ * handle_string - Function displays string to output.
+ *
+ * @args: Function argument.
+ *
+ * Return: i.
+ */
+
 int handle_string(va_list args)
 {
 	int i;
@@ -81,8 +101,12 @@ int handle_string(va_list args)
 	return (i);
 }
 /**
- * handle_percent - function prints % to output
-*/
+ * handle_percent - Function prints % to output.
+ *
+ * @args: Function argument.
+ *
+ * Return: 1.
+ */
 int handle_percent(__attribute__((unused)) va_list args)
 {
 	_putchar('%');
@@ -90,8 +114,13 @@ int handle_percent(__attribute__((unused)) va_list args)
 	return (1);
 }
 /**
- * handle_integer - function prints integer to output
-*/
+ * handle_integer - Function displays integer to output.
+ *
+ * @args: Function argument.
+ *
+ * Return: n.
+ */
+
 int handle_integer(va_list args)
 {
 	int n;
